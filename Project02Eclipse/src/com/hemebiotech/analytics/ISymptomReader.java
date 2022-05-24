@@ -18,4 +18,5 @@ public interface ISymptomReader {
      *         are possible/probable
      */
     List<String> GetSymptoms();
+
 }
