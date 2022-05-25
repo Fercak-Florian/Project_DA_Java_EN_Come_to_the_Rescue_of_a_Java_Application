@@ -5,28 +5,36 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class AnalyticsCounter {
-    private static int headacheCount = 0;
-    private static int rashCount = 0;
-    private static int pupilCount = 0;
+    public static int headacheCount = 0;
+    public static int rashCount = 0;
+    public static int pupilCount = 0;
 
+    // Entry Point
     public static void main(String args[]) throws Exception {
+
+	// Trying to instance ReadSymptomDataFromFile object
+	/*
+	 * ReadSymptomDataFromFile a = new ReadSymptomDataFromFile(); a.GetSymptoms();
+	 */
+
 	// first get input
 	BufferedReader reader = new BufferedReader(new FileReader(
 		"D:\\Dev\\Projet_2\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt"));
+
 	String line = reader.readLine();
 
-	int i = 0;
-	int headachesCount = 0;
 	while (line != null) {
-	    i += 1;
+
 	    System.out.println("symptom from file: " + line);
 	    if (line.equals("headache")) {
-		headachesCount += 1;
-		System.out.println("number of headaches: " + headachesCount);
-	    } else if (line.equals("rush")) {
+		headacheCount += 1;
+		System.out.println("number of headaches: " + headacheCount);
+	    } else if (line.equals("rash")) {
 		rashCount += 1;
+		System.out.println("number of rashes: " + rashCount);
 	    } else if (line.contains("pupils")) {
 		pupilCount += 1;
+		System.out.println("number of pupils: " + pupilCount);
 	    }
 
 	    line = reader.readLine(); // get another symptom
