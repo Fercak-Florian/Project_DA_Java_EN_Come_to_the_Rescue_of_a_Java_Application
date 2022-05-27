@@ -1,8 +1,7 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.Collections;
+import java.util.List;
 
 public class AnalyticsCounter {
     public static int headacheCount = 0;
@@ -12,41 +11,71 @@ public class AnalyticsCounter {
     // Entry Point
     public static void main(String args[]) throws Exception {
 
-	// Trying to instance ReadSymptomDataFromFile object
+	// Instance of ReadSymptomDataFromFile class
+	ReadSymptomDataFromFile readingFile = new ReadSymptomDataFromFile(
+		"D:\\Dev\\Projet_2\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt");
+
+	List<String> listOfSymptoms = readingFile.GetSymptoms();
+
+	Collections.sort(listOfSymptoms);
+
+	// To access element of a List
+	// System.out.println(listOfSymptoms.get(23));
+
+	// Iteration of listOfSymptoms
+
 	/*
-	 * ReadSymptomDataFromFile a = new ReadSymptomDataFromFile(); a.GetSymptoms();
+	 * for (String symptom : listOfSymptoms) { System.out.println(symptom); }
 	 */
 
-	// first get input
-	BufferedReader reader = new BufferedReader(new FileReader(
-		"D:\\Dev\\Projet_2\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt"));
+	// Count
+	if (listOfSymptoms.size() == 0) {
+	    System.out.println("La liste de symptomes est vide, ce n'est pas la peine de compter");
+	} else {
+	    int counter = 0;
+	    System.out.println("Avant for");
 
-	String line = reader.readLine();
+	    for (String symptom : listOfSymptoms) { //
+		// System.out.println("boucle du for");
 
-	while (line != null) {
+		/*
+		 * System.out.println("avant le 2eme if"); if (symptom == "anxiety") {
+		 * System.out.println("passe dans le 2eme if"); counter += 1;
+		 * System.out.println("Nombre de " + symptom + "=" + counter); } else {
+		 * System.out.println("sort de la boucle"); }
+		 */
 
-	    System.out.println("symptom from file: " + line);
-	    if (line.equals("headache")) {
-		headacheCount += 1;
-		System.out.println("number of headaches: " + headacheCount);
-	    } else if (line.equals("rash")) {
-		rashCount += 1;
-		System.out.println("number of rashes: " + rashCount);
-	    } else if (line.contains("pupils")) {
-		pupilCount += 1;
-		System.out.println("number of pupils: " + pupilCount);
+		/*
+		 * while (symptom.equals(listOfSymptoms.get(counter))) {
+		 * System.out.println("boucle du while"); counter += 1;
+		 * System.out.println("Nombre de " + listOfSymptoms.get(counter) + " : " +
+		 * counter); }
+		 */
+
+		/*
+		 * do { System.out.println(listOfSymptoms.get(counter)); counter += 1;
+		 * 
+		 * } while (symptom.equals(listOfSymptoms.get(counter)) &&
+		 * symptom.equals(listOfSymptoms.get(counter + 1)));
+		 */
+
+		if (symptom.equals("anxiety")) {
+		    System.out.println("YO !");
+		    counter += 1;
+		} else {
+		    System.out.println("Nombre de anxiety : " + counter);
+		}
+
 	    }
 
-	    line = reader.readLine(); // get another symptom
+	    /*
+	     * else { System.out.println("Nombre de " + symptom + " : " + counter); }
+	     * 
+	     * 
+	     * }
+	     */
 	}
 
-	reader.close();
-
-	// next generate output
-	FileWriter writer = new FileWriter("result.out");
-	writer.write("headache: " + headacheCount + "\n");
-	writer.write("rash: " + rashCount + "\n");
-	writer.write("dialated pupils: " + pupilCount + "\n");
-	writer.close();
     }
+
 }
