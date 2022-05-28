@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 public class AnalyticsCounter {
-    public static int headacheCount = 0;
-    public static int rashCount = 0;
-    public static int pupilCount = 0;
 
     // Method to read file
     public static List<String> readingFile() {
