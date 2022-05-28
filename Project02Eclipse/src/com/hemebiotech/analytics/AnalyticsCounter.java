@@ -1,45 +1,74 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AnalyticsCounter {
-    private static int headacheCount = 0;
-    private static int rashCount = 0;
-    private static int pupilCount = 0;
+    public static int headacheCount = 0;
+    public static int rashCount = 0;
+    public static int pupilCount = 0;
 
-    public static void main(String args[]) throws Exception {
-	// first get input
-	BufferedReader reader = new BufferedReader(new FileReader(
-		"D:\\Dev\\Projet_2\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt"));
-	String line = reader.readLine();
+    // Method to read file
+    public static List<String> readingFile() {
+	// Instance of ReadSymptomDataFromFile class
+	ReadSymptomDataFromFile readingFile = new ReadSymptomDataFromFile(
+		"D:\\Dev\\Projet_2\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt");
 
-	int i = 0;
-	int headachesCount = 0;
+	List<String> listOfSymptoms = readingFile.GetSymptoms();
+	return listOfSymptoms;
+    }
 
-	while (line != null) {
-	    i += 1;
-	    System.out.println("symptom from file: " + line);
-	    if (line.equals("headache")) {
-		headachesCount += 1;
-		System.out.println("number of headaches: " + headachesCount);
-	    } else if (line.equals("rush")) {
-		rashCount += 1;
-	    } else if (line.contains("pupils")) {
-		pupilCount += 1;
+    // Method to sort list
+    public static List<String> sortList(List<String> list) {
+	Collections.sort(list);
+	return list;
+    }
+
+    // Method to count by symptoms
+    static HashMap<String, Integer> count(List<String> symptomList) {
+	HashMap<String, Integer> mapOfSymptoms = new HashMap<String, Integer>();
+
+	if (symptomList.size() == 0) {
+
+	} else {
+	    String currentSymptom = symptomList.get(0);
+	    int counter = 0;
+	    for (String symptom : symptomList) {
+		if (symptom.equals(currentSymptom)) {
+		    counter += 1;
+		} else {
+		    // A ranger dans map
+		    mapOfSymptoms.put(currentSymptom, counter);
+		    // System.out.println(currentSymptom + counter);
+		    counter = 1;
+		    currentSymptom = symptom;
+		}
 	    }
-
-	    line = reader.readLine(); // get another symptom
+	    // Ranger le dernier symptom dans map
+	    mapOfSymptoms.put(currentSymptom, counter);
+	    // System.out.println(currentSymptom + counter);
 	}
 
-	reader.close();
+	return mapOfSymptoms;
+    }
 
-	// next generate output
-	FileWriter writer = new FileWriter("result.out");
-	writer.write("headache: " + headacheCount + "\n");
-	writer.write("rash: " + rashCount + "\n");
-	writer.write("dialated pupils: " + pupilCount + "\n");
-	writer.close();
+    // Affichage du map
+    static void displayMap(HashMap<String, Integer> map) {
+	for (Map.Entry<String, Integer> entry : map.entrySet()) {
+	    System.out.println(entry.getKey() + " = " + entry.getValue());
+	}
+    }
+
+    // Entry Point
+    public static void main(String args[]) throws Exception {
+
+	// Call Method readingFile and sortList
+	List<String> listOfSymptoms = readingFile();
+	List<String> sortedList = sortList(listOfSymptoms);
+	HashMap<String, Integer> sortedMap = count(sortedList);
+	displayMap(sortedMap);
+
     }
 }
