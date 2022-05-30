@@ -1,6 +1,6 @@
 package com.hemebiotech.analytics;
 
-import java.io.PrintWriter;
+import java.io.FileWriter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -52,10 +52,25 @@ public class AnalyticsCounter {
 	return mapOfSymptoms;
     }
 
-    // Affichage du map
+    // Method to display Map into console
     static void displayMap(HashMap<String, Integer> map) {
 	for (Map.Entry<String, Integer> entry : map.entrySet()) {
 	    System.out.println(entry.getKey() + " = " + entry.getValue());
+	}
+    }
+
+    // Method to write into file
+    static void writeFile(HashMap<String, Integer> map) {
+	try {
+	    FileWriter writer = new FileWriter("result.out");
+
+	    for (Map.Entry<String, Integer> entry : map.entrySet()) {
+		writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+	    }
+
+	    writer.close();
+	} catch (Exception e) {
+	    e.printStackTrace();
 	}
     }
 
@@ -67,20 +82,8 @@ public class AnalyticsCounter {
 	List<String> sortedList = sortList(listOfSymptoms);
 	HashMap<String, Integer> Map = count(sortedList);
 	displayMap(Map);
+	writeFile(Map);
 
-	// Trying to write into file with PrintWriter
-
-	try {
-	    PrintWriter printWriter = new PrintWriter("resultats.out");
-
-	    for (Map.Entry<String, Integer> entry : Map.entrySet()) {
-		printWriter.println(entry.getKey() + " = " + entry.getValue());
-	    }
-
-	    printWriter.close();
-	} catch (Exception e) {
-	    e.printStackTrace();
-	}
     }
 
 }
