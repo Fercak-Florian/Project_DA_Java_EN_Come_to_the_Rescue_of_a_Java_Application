@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -64,8 +65,22 @@ public class AnalyticsCounter {
 	// Call Method readingFile and sortList
 	List<String> listOfSymptoms = readingFile();
 	List<String> sortedList = sortList(listOfSymptoms);
-	HashMap<String, Integer> sortedMap = count(sortedList);
-	displayMap(sortedMap);
+	HashMap<String, Integer> Map = count(sortedList);
+	displayMap(Map);
 
+	// Trying to write into file with PrintWriter
+
+	try {
+	    PrintWriter printWriter = new PrintWriter("resultats.out");
+
+	    for (Map.Entry<String, Integer> entry : Map.entrySet()) {
+		printWriter.println(entry.getKey() + " = " + entry.getValue());
+	    }
+
+	    printWriter.close();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	}
     }
+
 }
