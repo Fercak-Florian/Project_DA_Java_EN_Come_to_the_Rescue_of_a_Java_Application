@@ -1,14 +1,12 @@
 package com.hemebiotech.analytics;
 
+import java.io.FileWriter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class AnalyticsCounter {
-    public static int headacheCount = 0;
-    public static int rashCount = 0;
-    public static int pupilCount = 0;
 
     // Method to read file
     public static List<String> readingFile() {
@@ -54,21 +52,29 @@ public class AnalyticsCounter {
 	return mapOfSymptoms;
     }
 
-    // Affichage du map
-    static void displayMap(HashMap<String, Integer> map) {
-	for (Map.Entry<String, Integer> entry : map.entrySet()) {
-	    System.out.println(entry.getKey() + " = " + entry.getValue());
+    // Method to write into file
+    static void writeFile(HashMap<String, Integer> map) {
+	try {
+	    FileWriter writer = new FileWriter("result.out");
+
+	    for (Map.Entry<String, Integer> entry : map.entrySet()) {
+		writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+	    }
+
+	    writer.close();
+	} catch (Exception e) {
+	    e.printStackTrace();
 	}
     }
 
     // Entry Point
     public static void main(String args[]) throws Exception {
 
-	// Call Method readingFile and sortList
 	List<String> listOfSymptoms = readingFile();
 	List<String> sortedList = sortList(listOfSymptoms);
-	HashMap<String, Integer> sortedMap = count(sortedList);
-	displayMap(sortedMap);
+	HashMap<String, Integer> Map = count(sortedList);
+	writeFile(Map);
 
     }
+
 }
