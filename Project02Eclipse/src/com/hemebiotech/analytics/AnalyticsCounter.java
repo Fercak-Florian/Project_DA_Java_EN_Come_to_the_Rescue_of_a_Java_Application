@@ -9,7 +9,7 @@ import java.util.Map;
 public class AnalyticsCounter {
 
     // Method to read file
-    public static List<String> readingFile() {
+    public List<String> readingFile() {
 	// Instance of ReadSymptomDataFromFile class
 	ReadSymptomDataFromFile readingFile = new ReadSymptomDataFromFile(
 		"D:\\Dev\\Projet_2\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt");
@@ -19,13 +19,13 @@ public class AnalyticsCounter {
     }
 
     // Method to sort list
-    public static List<String> sortList(List<String> list) {
+    public List<String> sortList(List<String> list) {
 	Collections.sort(list);
 	return list;
     }
 
     // Method to count by symptoms
-    static HashMap<String, Integer> count(List<String> symptomList) {
+    public HashMap<String, Integer> count(List<String> symptomList) {
 	HashMap<String, Integer> mapOfSymptoms = new HashMap<String, Integer>();
 
 	if (symptomList.size() == 0) {
@@ -53,7 +53,7 @@ public class AnalyticsCounter {
     }
 
     // Method to write into file
-    static void writeFile(HashMap<String, Integer> map) {
+    public void writeFile(HashMap<String, Integer> map) {
 	try {
 	    FileWriter writer = new FileWriter("result.out");
 
@@ -65,16 +65,6 @@ public class AnalyticsCounter {
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}
-    }
-
-    // Entry Point
-    public static void main(String args[]) throws Exception {
-
-	List<String> listOfSymptoms = readingFile();
-	List<String> sortedList = sortList(listOfSymptoms);
-	HashMap<String, Integer> Map = count(sortedList);
-	writeFile(Map);
-
     }
 
 }
