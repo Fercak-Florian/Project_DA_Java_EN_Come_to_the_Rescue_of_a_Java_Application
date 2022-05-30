@@ -52,13 +52,6 @@ public class AnalyticsCounter {
 	return mapOfSymptoms;
     }
 
-    // Method to display Map into console
-    static void displayMap(HashMap<String, Integer> map) {
-	for (Map.Entry<String, Integer> entry : map.entrySet()) {
-	    System.out.println(entry.getKey() + " = " + entry.getValue());
-	}
-    }
-
     // Method to write into file
     static void writeFile(HashMap<String, Integer> map) {
 	try {
@@ -77,11 +70,9 @@ public class AnalyticsCounter {
     // Entry Point
     public static void main(String args[]) throws Exception {
 
-	// Call Method readingFile and sortList
 	List<String> listOfSymptoms = readingFile();
 	List<String> sortedList = sortList(listOfSymptoms);
 	HashMap<String, Integer> Map = count(sortedList);
-	displayMap(Map);
 	writeFile(Map);
 
     }
