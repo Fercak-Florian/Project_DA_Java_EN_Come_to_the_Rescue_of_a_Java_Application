@@ -15,6 +15,5 @@ public interface ISymptomWriter {
      * 
      * @param a Hash from symptoms
      */
-    void PutSymptoms(HashMap<String, Integer> map);
-
+    void putSymptoms(HashMap<String, Integer> map);
 }

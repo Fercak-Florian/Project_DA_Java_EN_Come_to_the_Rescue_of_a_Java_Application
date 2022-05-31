@@ -16,7 +16,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
     }
 
     @Override
-    public void PutSymptoms(HashMap<String, Integer> map) {
+    public void putSymptoms(HashMap<String, Integer> map) {
 
 	try {
 	    FileWriter writer = new FileWriter("result.out");
@@ -29,6 +29,5 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}
-
     }
 }
