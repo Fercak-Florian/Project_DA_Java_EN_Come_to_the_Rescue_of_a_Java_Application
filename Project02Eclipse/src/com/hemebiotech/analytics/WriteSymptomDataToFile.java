@@ -5,18 +5,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Simple brute force implementation
+ * a changer
  *
  */
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
-    // Constructor
-    public WriteSymptomDataToFile(HashMap<String, Integer> map) {
+    public WriteSymptomDataToFile() {
 
     }
 
-    // Implementation of PutSymptoms method
+    @Override
     public void PutSymptoms(HashMap<String, Integer> map) {
 
 	try {

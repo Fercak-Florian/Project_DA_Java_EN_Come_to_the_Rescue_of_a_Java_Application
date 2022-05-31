@@ -1,10 +1,8 @@
 package com.hemebiotech.analytics;
 
-import java.io.FileWriter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class AnalyticsCounter {
 
@@ -55,17 +53,9 @@ public class AnalyticsCounter {
 
     // Method to write into file
     void writingFile(HashMap<String, Integer> map) {
-	try {
-	    FileWriter writer = new FileWriter("result.out");
+	WriteSymptomDataToFile writingFile = new WriteSymptomDataToFile();
+	writingFile.PutSymptoms(map);
 
-	    for (Map.Entry<String, Integer> entry : map.entrySet()) {
-		writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
-	    }
-
-	    writer.close();
-	} catch (Exception e) {
-	    e.printStackTrace();
-	}
     }
 
 }
