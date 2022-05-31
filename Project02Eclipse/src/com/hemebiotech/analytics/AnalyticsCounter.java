@@ -25,7 +25,8 @@ public class AnalyticsCounter {
     }
 
     // Method to count by symptoms
-    public HashMap<String, Integer> count(List<String> symptomList) {
+    HashMap<String, Integer> count(List<String> symptomList) {
+	// Creating a Map to stock number of each symptom
 	HashMap<String, Integer> mapOfSymptoms = new HashMap<String, Integer>();
 
 	if (symptomList.size() == 0) {
@@ -53,7 +54,7 @@ public class AnalyticsCounter {
     }
 
     // Method to write into file
-    public void writeFile(HashMap<String, Integer> map) {
+    void writingFile(HashMap<String, Integer> map) {
 	try {
 	    FileWriter writer = new FileWriter("result.out");
 

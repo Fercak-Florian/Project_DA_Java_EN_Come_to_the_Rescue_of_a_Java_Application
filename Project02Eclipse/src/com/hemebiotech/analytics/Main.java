@@ -13,7 +13,7 @@ public class Main {
 	List<String> listOfSymptoms = analyticsCounter.readingFile();
 	List<String> sortedList = analyticsCounter.sortList(listOfSymptoms);
 	HashMap<String, Integer> Map = analyticsCounter.count(sortedList);
-	analyticsCounter.writeFile(Map);
+	analyticsCounter.writingFile(Map);
     }
 
 }

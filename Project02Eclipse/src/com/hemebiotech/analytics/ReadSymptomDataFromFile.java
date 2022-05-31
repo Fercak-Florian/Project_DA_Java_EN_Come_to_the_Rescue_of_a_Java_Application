@@ -25,27 +25,25 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
     @Override
     public List<String> GetSymptoms() {
-	// Declaration of a flexible List called "result"
 	ArrayList<String> result = new ArrayList<String>();
 
-	// If file exists
 	if (filepath != null) {
-	    // Try to read it
 	    try {
 		BufferedReader reader = new BufferedReader(new FileReader(filepath));
 		String line = reader.readLine();
 
 		while (line != null) {
 		    result.add(line);
-		    line = reader.readLine(); // Get another symptom
+		    line = reader.readLine();
 		}
 		reader.close();
-		// If file doesn't exists
+
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
+	    // If file doesn't exists
 	} else {
-	    // retourner une liste vide --> A CODER !
+	    result.add(null);
 	}
 
 	return result;
