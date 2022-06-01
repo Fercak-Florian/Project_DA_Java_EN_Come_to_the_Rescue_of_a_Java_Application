@@ -1,9 +1,9 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 public interface ISymptomCounter {
     // javadoc
-    HashMap<String, Integer> getNumberOfSymptoms(List<String> symptomList);
+    TreeMap<String, Integer> getNumberOfSymptoms(List<String> symptomList);
 }

@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 public class Main {
 
@@ -11,9 +11,11 @@ public class Main {
 
 	List<String> listOfSymptoms = analyticsCounter.readFile();
 	List<String> sortedList = analyticsCounter.sortList(listOfSymptoms);
-	HashMap<String, Integer> Map = analyticsCounter.count(sortedList);
+	TreeMap<String, Integer> Map = analyticsCounter.count(sortedList);
 
 	analyticsCounter.writeIntoFile(Map);
+
+	// IAnalyticsCounter a = new ISymptomeReader();
 
     }
 
