@@ -6,6 +6,7 @@ import java.util.List;
 
 public class AnalyticsCounter {
 
+    // Method to read symptoms
     public List<String> readFile() {
 
 	ISymptomReader readFile = new ReadSymptomDataFromFile(
@@ -15,36 +16,24 @@ public class AnalyticsCounter {
 	return listOfSymptoms;
     }
 
+    // Method to sort symptoms
+
     public List<String> sortList(List<String> list) {
 	Collections.sort(list);
 	return list;
     }
 
+    // Method to count symptoms
     HashMap<String, Integer> count(List<String> symptomList) {
+	ISymptomCounter countSymptoms = new CountSymptom();
+	return countSymptoms.getNumberOfSymptoms(symptomList);
 
-	HashMap<String, Integer> mapOfSymptoms = new HashMap<String, Integer>();
-
-	if (symptomList.size() == 0) {
-
-	} else {
-	    String currentSymptom = symptomList.get(0);
-	    int counter = 0;
-	    for (String symptom : symptomList) {
-		if (symptom.equals(currentSymptom)) {
-		    counter += 1;
-		} else {
-		    mapOfSymptoms.put(currentSymptom, counter);
-		    counter = 1;
-		    currentSymptom = symptom;
-		}
-	    }
-	    mapOfSymptoms.put(currentSymptom, counter);
-	}
-	return mapOfSymptoms;
     }
 
+    // Method to write file
     void writeIntoFile(HashMap<String, Integer> map) {
 	ISymptomWriter writeFile = new WriteSymptomDataToFile();
 	writeFile.putSymptoms(map);
     }
+
 }

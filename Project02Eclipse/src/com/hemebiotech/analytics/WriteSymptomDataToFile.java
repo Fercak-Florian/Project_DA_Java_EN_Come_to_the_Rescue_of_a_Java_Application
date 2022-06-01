@@ -5,8 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * a changer
- *
+ * This class is used to write into a file from a Map
  */
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
