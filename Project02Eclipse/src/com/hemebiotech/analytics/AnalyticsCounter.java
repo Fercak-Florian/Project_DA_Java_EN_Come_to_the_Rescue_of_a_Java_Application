@@ -1,6 +1,5 @@
 package com.hemebiotech.analytics;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,17 +16,15 @@ public class AnalyticsCounter {
     }
 
     // Method to sort symptoms
-
     public List<String> sortList(List<String> list) {
-	Collections.sort(list);
-	return list;
+	ISymptomSorter sortedList = new SortDataFromList();
+	return sortedList.sortListOfSymptoms(list);
     }
 
     // Method to count symptoms
     HashMap<String, Integer> count(List<String> symptomList) {
 	ISymptomCounter countSymptoms = new CountSymptom();
 	return countSymptoms.getNumberOfSymptoms(symptomList);
-
     }
 
     // Method to write file
