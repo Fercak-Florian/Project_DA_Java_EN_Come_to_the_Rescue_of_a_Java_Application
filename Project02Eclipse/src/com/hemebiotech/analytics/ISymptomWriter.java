@@ -1,6 +1,6 @@
 package com.hemebiotech.analytics;
 
-import java.util.TreeMap;
+import java.util.Map;
 
 /**
  * Anything that will write symptom data from a source into file. The important
@@ -15,5 +15,5 @@ public interface ISymptomWriter {
      * 
      * @param a Hash from symptoms
      */
-    void putSymptoms(TreeMap<String, Integer> map);
+    void putSymptoms(Map<String, Integer> map, String outPutFileName);
 }
