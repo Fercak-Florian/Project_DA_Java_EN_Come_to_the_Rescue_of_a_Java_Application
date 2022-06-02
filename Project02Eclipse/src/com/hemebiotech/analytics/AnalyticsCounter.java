@@ -3,6 +3,10 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class contains necessary methods to analyze an input file and implements
+ * the IAnalyticsCounter Interface
+ */
 public class AnalyticsCounter implements IAnalyticsCounter {
 
     AnalyticsCounter() {
@@ -18,7 +22,6 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	writeIntoFile(map, outPutFileName);
     }
 
-    // Method to read symptoms
     public List<String> readFile(String inputFileName) {
 
 	ISymptomReader readFile = new ReadSymptomDataFromFile(inputFileName);
@@ -26,19 +29,16 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	return listOfSymptoms;
     }
 
-    // Method to sort symptoms
     public List<String> sortList(List<String> list) {
 	ISymptomSorter sortedList = new SortDataFromList();
 	return sortedList.sortListOfSymptoms(list);
     }
 
-    // Method to count symptoms
     public Map<String, Integer> count(List<String> symptomList) {
 	ISymptomCounter countSymptoms = new CountSymptom();
 	return countSymptoms.getNumberOfSymptoms(symptomList);
     }
 
-    // Method to write file
     void writeIntoFile(Map<String, Integer> map, String outPutFileName) {
 	ISymptomWriter writeFile = new WriteSymptomDataToFile();
 	writeFile.putSymptoms(map, outPutFileName);

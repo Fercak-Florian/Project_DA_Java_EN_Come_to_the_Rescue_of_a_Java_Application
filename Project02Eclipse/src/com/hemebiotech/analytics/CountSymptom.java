@@ -5,13 +5,15 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * This class is used to count the number of each symptoms
- * 
- * @param an order List of symptoms
- * @return a TreeMap Key/Value containing Symptom/Number of symptoms
+ * This class is used to count the number of each symptoms and implements the
+ * ISymptomCounter interface
  */
-public class CountSymptom implements ISymptomCounter {
 
+public class CountSymptom implements ISymptomCounter {
+    /**
+     * @param an order List of symptoms
+     * @return a Map containing Symptom / occurrences
+     */
     public CountSymptom() {
 
     }

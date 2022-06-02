@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class is used to read strings from a file
+ * This class is used to read lines from a file and implements the
+ * ISymptomReader interface
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
