@@ -1,7 +1,6 @@
 package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -15,10 +14,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
     }
 
     @Override
-    public void putSymptoms(HashMap<String, Integer> map) {
+    public void putSymptoms(Map<String, Integer> map, String outPutFileName) {
 
 	try {
-	    FileWriter writer = new FileWriter("result.out");
+	    FileWriter writer = new FileWriter(outPutFileName);
 
 	    for (Map.Entry<String, Integer> entry : map.entrySet()) {
 		writer.write(entry.getKey() + ": " + entry.getValue() + "\n");

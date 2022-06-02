@@ -1,16 +1,27 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class AnalyticsCounter {
+public class AnalyticsCounter implements IAnalyticsCounter {
+
+    AnalyticsCounter() {
+
+    }
+
+    @Override
+    public void analyseSymptoms(String entryFileName, String outPutFileName) {
+
+	List<String> list = readFile(entryFileName);
+	List<String> sortedList = sortList(list);
+	Map<String, Integer> map = count(sortedList);
+	writeIntoFile(map, outPutFileName);
+    }
 
     // Method to read symptoms
-    public List<String> readFile() {
+    public List<String> readFile(String inputFileName) {
 
-	ISymptomReader readFile = new ReadSymptomDataFromFile(
-		"D:\\Dev\\Projet_2\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt");
-
+	ISymptomReader readFile = new ReadSymptomDataFromFile(inputFileName);
 	List<String> listOfSymptoms = readFile.getSymptoms();
 	return listOfSymptoms;
     }
@@ -22,15 +33,14 @@ public class AnalyticsCounter {
     }
 
     // Method to count symptoms
-    HashMap<String, Integer> count(List<String> symptomList) {
+    public Map<String, Integer> count(List<String> symptomList) {
 	ISymptomCounter countSymptoms = new CountSymptom();
 	return countSymptoms.getNumberOfSymptoms(symptomList);
     }
 
     // Method to write file
-    void writeIntoFile(HashMap<String, Integer> map) {
+    void writeIntoFile(Map<String, Integer> map, String outPutFileName) {
 	ISymptomWriter writeFile = new WriteSymptomDataToFile();
-	writeFile.putSymptoms(map);
+	writeFile.putSymptoms(map, outPutFileName);
     }
-
 }

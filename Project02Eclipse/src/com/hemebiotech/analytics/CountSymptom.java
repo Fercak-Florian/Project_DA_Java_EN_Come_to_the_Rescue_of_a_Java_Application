@@ -1,8 +1,15 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
+/**
+ * This class is used to count the number of each symptoms
+ * 
+ * @param an order List of symptoms
+ * @return a TreeMap Key/Value containing Symptom/Number of symptoms
+ */
 public class CountSymptom implements ISymptomCounter {
 
     public CountSymptom() {
@@ -10,9 +17,9 @@ public class CountSymptom implements ISymptomCounter {
     }
 
     @Override
-    public HashMap<String, Integer> getNumberOfSymptoms(List<String> symptomList) {
+    public Map<String, Integer> getNumberOfSymptoms(List<String> symptomList) {
 
-	HashMap<String, Integer> mapOfSymptoms = new HashMap<String, Integer>();
+	TreeMap<String, Integer> mapOfSymptoms = new TreeMap<String, Integer>();
 
 	if (symptomList.size() == 0) {
 

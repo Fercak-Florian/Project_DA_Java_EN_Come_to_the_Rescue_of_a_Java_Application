@@ -7,17 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * a écrire
- *
+ * This class is used to read strings from a file
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
     private String filepath;
 
     /**
-     * 
      * @param filepath a full or partial path to file with symptom strings in it,
      *                 one per line
+     * @return an ArrayList containing all the strings from file
      */
     public ReadSymptomDataFromFile(String filepath) {
 	this.filepath = filepath;
