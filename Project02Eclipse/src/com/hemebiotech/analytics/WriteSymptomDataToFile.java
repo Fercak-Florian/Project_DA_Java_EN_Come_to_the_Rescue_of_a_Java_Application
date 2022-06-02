@@ -7,16 +7,18 @@ import java.util.Map;
  * This class is used to write into a file from a Map and implements the
  * ISymptomWriter interface
  */
-
 public class WriteSymptomDataToFile implements ISymptomWriter {
-    /**
-     * @param an order List of symptoms and Create an output file containing each
-     *           symptom with their occurrences
-     */
+
     public WriteSymptomDataToFile() {
 
     }
 
+    /**
+     * @param an order List of symptoms and a output file name
+     * 
+     *           Create an output file containing each symptom with their
+     *           occurrences
+     */
     @Override
     public void putSymptoms(Map<String, Integer> map, String outPutFileName) {
 

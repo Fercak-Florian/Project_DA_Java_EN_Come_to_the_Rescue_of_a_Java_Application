@@ -8,16 +8,16 @@ import java.util.TreeMap;
  * This class is used to count the number of each symptoms and implements the
  * ISymptomCounter interface
  */
-
 public class CountSymptom implements ISymptomCounter {
-    /**
-     * @param an order List of symptoms
-     * @return a Map containing Symptom / occurrences
-     */
+
     public CountSymptom() {
 
     }
 
+    /**
+     * @param an order List of symptoms
+     * @return a Map containing symptom : Number of symptoms
+     */
     @Override
     public Map<String, Integer> getNumberOfSymptoms(List<String> symptomList) {
 

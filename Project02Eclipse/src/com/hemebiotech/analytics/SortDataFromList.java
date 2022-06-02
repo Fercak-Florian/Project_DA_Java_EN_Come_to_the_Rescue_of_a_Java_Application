@@ -11,15 +11,15 @@ import java.util.List;
  * ISymptomSorter interface
  */
 public class SortDataFromList implements ISymptomSorter {
-    /**
-     * @param a List of Strings
-     * @return a sorted listing of all Symptoms
-     */
 
     public SortDataFromList() {
 
     }
 
+    /**
+     * @param a List of Strings
+     * @return a sorted listing of all Symptoms
+     */
     @Override
     public List<String> sortListOfSymptoms(List<String> list) {
 

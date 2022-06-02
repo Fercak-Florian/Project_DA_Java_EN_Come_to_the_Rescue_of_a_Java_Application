@@ -8,7 +8,7 @@ import java.util.List;
 public interface ISymptomSorter {
     /**
      * @param a List of String
-     * @return a sorted listing of all Symptoms obtained from a data source.
+     * @return a sorted listing of all Symptoms obtained from a list.
      */
     List<String> sortListOfSymptoms(List<String> list);
 }
