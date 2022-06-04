@@ -7,5 +7,5 @@ public interface IAnalyticsCounter {
     /**
      * @param a input file name and an output file name
      */
-    void analyseSymptoms(String entryFileName, String outPutFileName);
+    void analyseSymptoms();
 }
