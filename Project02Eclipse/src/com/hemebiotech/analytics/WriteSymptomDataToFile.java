@@ -14,10 +14,9 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
     }
 
     /**
-     * @param an order List of symptoms and a output file name
+     * @param a Map of symptoms and a output file name
      * 
-     *           Create an output file containing each symptom with their
-     *           occurrences
+     *          Create an output file containing each symptom with their occurrences
      */
     @Override
     public void putSymptoms(Map<String, Integer> map, String outPutFileName) {

@@ -23,10 +23,8 @@ public class AnalyticsCounter implements IAnalyticsCounter {
     }
 
     public List<String> readFile(String inputFileName) {
-
 	ISymptomReader readFile = new ReadSymptomDataFromFile(inputFileName);
-	List<String> listOfSymptoms = readFile.getSymptoms();
-	return listOfSymptoms;
+	return readFile.getSymptoms();
     }
 
     public List<String> sortList(List<String> list) {

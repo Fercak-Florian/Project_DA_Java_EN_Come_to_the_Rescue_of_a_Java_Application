@@ -9,7 +9,7 @@ public interface ISymptomWriter {
     /**
      * Create an output file containing each symptom with their occurrences
      * 
-     * @param a Map of symptoms and an output file name
+     * @param Map of symptoms and an output file name
      */
     void putSymptoms(Map<String, Integer> map, String outPutFileName);
 }
