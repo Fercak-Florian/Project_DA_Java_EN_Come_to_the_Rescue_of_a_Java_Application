@@ -6,16 +6,20 @@ import java.util.Collections;
  */
 import java.util.List;
 
+/**
+ * This class is used to sort a list of Strings and implements the
+ * ISymptomSorter interface
+ */
 public class SortDataFromList implements ISymptomSorter {
-    /**
-     * @param a List of String
-     * @return a sorted listing of all Symptoms obtained from a data source.
-     */
 
     public SortDataFromList() {
 
     }
 
+    /**
+     * @param a List of Strings
+     * @return a sorted listing of all Symptoms
+     */
     @Override
     public List<String> sortListOfSymptoms(List<String> list) {
 
