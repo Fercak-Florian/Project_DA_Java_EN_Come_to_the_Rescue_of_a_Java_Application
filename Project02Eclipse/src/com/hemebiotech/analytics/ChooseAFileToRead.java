@@ -6,7 +6,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
 public class ChooseAFileToRead {
-    private String file;
+    private String fileToRead;
 
     public ChooseAFileToRead() {
 
@@ -20,10 +20,8 @@ public class ChooseAFileToRead {
 
 	if (res == JFileChooser.APPROVE_OPTION) {
 	    File file = choose.getSelectedFile();
-	    // System.out.println(file.getAbsolutePath());
-	    String fileToRead = file.getAbsolutePath();
-	    System.out.println(fileToRead);
+	    fileToRead = file.getAbsolutePath();
 	}
-	return file;
+	return fileToRead;
     }
 }
