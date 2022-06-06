@@ -9,10 +9,7 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
 
-	ChooseAFileToRead chooseFile = new ChooseAFileToRead();
-	String pathFile = chooseFile.openAFile();
-
-	IAnalyticsCounter analyseSymptom = new AnalyticsCounter(pathFile, "results.out");
+	IAnalyticsCounter analyseSymptom = new AnalyticsCounter("results.out");
 	analyseSymptom.analyseSymptoms();
     }
 }

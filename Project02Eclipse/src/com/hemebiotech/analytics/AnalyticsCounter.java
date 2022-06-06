@@ -9,21 +9,24 @@ import java.util.Map;
  */
 public class AnalyticsCounter implements IAnalyticsCounter {
 
-    private String inputFile;
     private String outputFile;
 
-    AnalyticsCounter(String inputFile, String outputFile) {
-	this.inputFile = inputFile;
+    AnalyticsCounter(String outputFile) {
 	this.outputFile = outputFile;
     }
 
     @Override
     public void analyseSymptoms() {
-
-	List<String> list = readFile(inputFile);
+	String path = chooseFile();
+	List<String> list = readFile(path);
 	List<String> sortedList = sortList(list);
 	Map<String, Integer> map = count(sortedList);
 	writeIntoFile(map, outputFile);
+    }
+
+    public String chooseFile() {
+	ChooseAFileToRead chooseFile = new ChooseAFileToRead();
+	return chooseFile.openAFile();
     }
 
     public List<String> readFile(String inputFileName) {
