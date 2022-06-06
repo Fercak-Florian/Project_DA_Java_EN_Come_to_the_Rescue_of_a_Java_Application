@@ -19,7 +19,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
      *          Create an output file containing each symptom with their occurrences
      */
     @Override
-    public void putSymptoms(Map<String, Integer> map, String outPutFileName) {
+    public String putSymptoms(Map<String, Integer> map, String outPutFileName) {
 
 	try {
 	    FileWriter writer = new FileWriter(outPutFileName);
@@ -32,5 +32,6 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}
+	return outPutFileName;
     }
 }

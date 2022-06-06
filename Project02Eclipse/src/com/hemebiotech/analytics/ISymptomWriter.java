@@ -11,5 +11,5 @@ public interface ISymptomWriter {
      * 
      * @param Map of symptoms and an output file name
      */
-    void putSymptoms(Map<String, Integer> map, String outPutFileName);
+    String putSymptoms(Map<String, Integer> map, String outPutFileName);
 }

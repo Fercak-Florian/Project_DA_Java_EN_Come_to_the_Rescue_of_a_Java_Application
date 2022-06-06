@@ -5,6 +5,10 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
+/**
+ * this class allows the user to choose a file
+ */
+
 public class ChooseAFileToRead {
     private String fileToRead;
 
@@ -12,7 +16,10 @@ public class ChooseAFileToRead {
 
     }
 
-    public String openAFile() {
+    /**
+     * @return a String contains a file path
+     */
+    public String chooseAFile() {
 
 	JFileChooser choose = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
