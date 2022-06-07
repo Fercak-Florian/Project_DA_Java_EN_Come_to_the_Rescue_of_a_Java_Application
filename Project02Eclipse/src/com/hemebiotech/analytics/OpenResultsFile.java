@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * This class is used to open file on Desktop
  */
-public class OpenResultsFile {
+public class OpenResultsFile implements IOpenResults {
 
     public OpenResultsFile() {
 
@@ -16,7 +16,6 @@ public class OpenResultsFile {
     /**
      * @param outputFile name
      */
-
     public void openFile(String outputFile) {
 
 	File file = new File(outputFile);

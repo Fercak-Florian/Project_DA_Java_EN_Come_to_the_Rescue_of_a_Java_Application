@@ -2,23 +2,23 @@ package com.hemebiotech.analytics;
 
 import java.util.Collections;
 /**
- * This class is used to sort strings from a List
+ * This class is used to sort string from a List
  */
 import java.util.List;
 
 /**
- * This class is used to sort a list of Strings and implements the
- * ISymptomSorter interface
+ * This class is used to sort a list of String and implements the ISymptomSort
+ * interface
  */
-public class SortDataFromList implements ISymptomSorter {
+public class SortDataFromList implements ISymptomSort {
 
     public SortDataFromList() {
 
     }
 
     /**
-     * @param a List of Strings
-     * @return a sorted listing of all Symptoms
+     * @param a List of String
+     * @return a sorted list of all Symptoms
      */
     @Override
     public List<String> sortListOfSymptoms(List<String> list) {

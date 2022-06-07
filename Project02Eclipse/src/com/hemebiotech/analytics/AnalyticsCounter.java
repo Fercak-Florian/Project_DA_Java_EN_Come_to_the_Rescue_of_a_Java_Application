@@ -25,31 +25,37 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	openFile(exitFile);
     }
 
+    @Override
     public String chooseFile() {
 	ChooseAFileToRead chooseFile = new ChooseAFileToRead();
 	return chooseFile.chooseAFile();
     }
 
+    @Override
     public List<String> readFile(String inputFileName) {
 	ISymptomReader readFile = new ReadSymptomDataFromFile(inputFileName);
 	return readFile.getSymptoms();
     }
 
+    @Override
     public List<String> sortList(List<String> list) {
-	ISymptomSorter sortedList = new SortDataFromList();
+	ISymptomSort sortedList = new SortDataFromList();
 	return sortedList.sortListOfSymptoms(list);
     }
 
+    @Override
     public Map<String, Integer> count(List<String> symptomList) {
 	ISymptomCounter countSymptoms = new CountSymptom();
 	return countSymptoms.getNumberOfSymptoms(symptomList);
     }
 
-    String writeIntoFile(Map<String, Integer> map, String outPutFileName) {
+    @Override
+    public String writeIntoFile(Map<String, Integer> map, String outPutFileName) {
 	ISymptomWriter writeFile = new WriteSymptomDataToFile();
 	return writeFile.putSymptoms(map, outPutFileName);
     }
 
+    @Override
     public void openFile(String outPutFileName) {
 	OpenResultsFile openResults = new OpenResultsFile();
 	openResults.openFile(outPutFileName);

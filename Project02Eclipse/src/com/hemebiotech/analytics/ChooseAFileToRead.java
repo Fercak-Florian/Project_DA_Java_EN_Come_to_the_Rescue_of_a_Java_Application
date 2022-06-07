@@ -6,10 +6,10 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 
 /**
- * this class allows the user to choose a file
+ * /** This class allows users to choose a file to read through a dialog box
  */
 
-public class ChooseAFileToRead {
+public class ChooseAFileToRead implements IChooseAFile {
     private String fileToRead;
 
     public ChooseAFileToRead() {
