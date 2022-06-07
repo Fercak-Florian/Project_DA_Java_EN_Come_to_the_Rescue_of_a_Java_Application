@@ -9,17 +9,25 @@ import java.util.Map;
  */
 public class AnalyticsCounter implements IAnalyticsCounter {
 
-    AnalyticsCounter() {
+    private String outputFile;
 
+    AnalyticsCounter(String outputFile) {
+	this.outputFile = outputFile;
     }
 
     @Override
-    public void analyseSymptoms(String entryFileName, String outPutFileName) {
-
-	List<String> list = readFile(entryFileName);
+    public void analyseSymptoms() {
+	String path = chooseFile();
+	List<String> list = readFile(path);
 	List<String> sortedList = sortList(list);
 	Map<String, Integer> map = count(sortedList);
-	writeIntoFile(map, outPutFileName);
+	String exitFile = writeIntoFile(map, outputFile);
+	openFile(exitFile);
+    }
+
+    public String chooseFile() {
+	ChooseAFileToRead chooseFile = new ChooseAFileToRead();
+	return chooseFile.chooseAFile();
     }
 
     public List<String> readFile(String inputFileName) {
@@ -37,8 +45,13 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	return countSymptoms.getNumberOfSymptoms(symptomList);
     }
 
-    void writeIntoFile(Map<String, Integer> map, String outPutFileName) {
+    String writeIntoFile(Map<String, Integer> map, String outPutFileName) {
 	ISymptomWriter writeFile = new WriteSymptomDataToFile();
-	writeFile.putSymptoms(map, outPutFileName);
+	return writeFile.putSymptoms(map, outPutFileName);
+    }
+
+    public void openFile(String outPutFileName) {
+	OpenResultsFile openResults = new OpenResultsFile();
+	openResults.openFile(outPutFileName);
     }
 }
