@@ -14,7 +14,7 @@ public class OpenResultsFile implements IOpenResults {
     }
 
     /**
-     * @param outputFile name
+     * @param an output file name
      */
     public void openFile(String outputFile) {
 

@@ -28,6 +28,7 @@ public class CountSymptom implements ISymptomCounter {
 	} else {
 	    String currentSymptom = symptomList.get(0);
 	    int counter = 0;
+
 	    for (String symptom : symptomList) {
 		if (symptom.equals(currentSymptom)) {
 		    counter += 1;
