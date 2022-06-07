@@ -26,7 +26,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
     }
 
     /**
-     * @return an ArrayList containing all the strings from file
+     * @return an ArrayList containing all the String from file
      */
     @Override
     public List<String> getSymptoms() {

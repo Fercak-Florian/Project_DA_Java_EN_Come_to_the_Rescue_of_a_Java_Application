@@ -7,16 +7,15 @@ import java.io.IOException;
 /**
  * This class is used to open file on Desktop
  */
-public class OpenResultsFile {
+public class OpenResultsFile implements IOpenResults {
 
     public OpenResultsFile() {
 
     }
 
     /**
-     * @param outputFile name
+     * @param an output file name
      */
-
     public void openFile(String outputFile) {
 
 	File file = new File(outputFile);
