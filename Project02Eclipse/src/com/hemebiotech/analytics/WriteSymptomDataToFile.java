@@ -19,8 +19,6 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
      * 
      * @param a Map of symptoms and a output file name
      * @return a output file name
-     * 
-     * 
      */
     @Override
     public String putSymptoms(Map<String, Integer> map, String outPutFileName) {
