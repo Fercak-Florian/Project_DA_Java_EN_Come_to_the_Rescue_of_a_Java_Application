@@ -17,6 +17,8 @@ public class SortDataFromList implements ISymptomSort {
     }
 
     /**
+     * This method is used to sort a list of String
+     * 
      * @param a List of String
      * @return a sorted list of all Symptoms
      */

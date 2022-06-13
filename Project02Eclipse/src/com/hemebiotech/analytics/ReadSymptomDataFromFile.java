@@ -26,6 +26,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
     }
 
     /**
+     * This method is used to read lines from a file
+     * 
      * @return an ArrayList containing all the String from file
      */
     @Override

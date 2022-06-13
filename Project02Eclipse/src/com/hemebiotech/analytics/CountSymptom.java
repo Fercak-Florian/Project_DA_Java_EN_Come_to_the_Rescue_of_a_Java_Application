@@ -16,6 +16,8 @@ public class CountSymptom implements ISymptomCounter {
     }
 
     /**
+     * This method is used to count the number of each symptoms
+     * 
      * @param an order List of symptoms
      * @return a Map containing symptom : Number of symptoms
      */

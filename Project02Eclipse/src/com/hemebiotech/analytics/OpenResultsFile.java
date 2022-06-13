@@ -14,6 +14,8 @@ public class OpenResultsFile implements IOpenResults {
     }
 
     /**
+     * This method is used to open file on Desktop
+     * 
      * @param an output file name
      */
     public void openFile(String outputFile) {

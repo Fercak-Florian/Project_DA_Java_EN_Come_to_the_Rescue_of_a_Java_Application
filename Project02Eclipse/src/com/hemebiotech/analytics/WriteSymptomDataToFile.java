@@ -14,7 +14,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
     }
 
     /**
-     * This class is used to create an output file containing each symptom with
+     * This method is used to create an output file containing each symptom with
      * their occurrences
      * 
      * @param a Map of symptoms and a output file name
