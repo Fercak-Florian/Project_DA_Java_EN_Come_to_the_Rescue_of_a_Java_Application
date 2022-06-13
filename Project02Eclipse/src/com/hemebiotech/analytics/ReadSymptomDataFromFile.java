@@ -16,16 +16,18 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
     /**
      * This constructor is used to create an object used to read a file containing
-     * Strings
+     * String
      * 
-     * @param filepath a full or partial path to file with symptom strings in it,
-     *                 one per line
+     * @param filepath a full or partial path to file with symptom String in it, one
+     *                 per line
      */
     public ReadSymptomDataFromFile(String filepath) {
 	this.filepath = filepath;
     }
 
     /**
+     * This method is used to read lines from a file
+     * 
      * @return an ArrayList containing all the String from file
      */
     @Override
